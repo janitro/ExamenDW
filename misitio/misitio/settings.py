@@ -43,24 +43,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.agave',
-    'allauth.socialaccount.providers.amazon',
-    'allauth.socialaccount.providers.angellist',
-    'allauth.socialaccount.providers.asana',
-    'allauth.socialaccount.providers.auth0',
-    'allauth.socialaccount.providers.authentiq',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.gitlab',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.reddit',
-    'allauth.socialaccount.providers.robinhood',
-    'allauth.socialaccount.providers.soundcloud',
-    'allauth.socialaccount.providers.spotify',
-    
-    'allauth.socialaccount.providers.twitch',
-    'allauth.socialaccount.providers.twitter',
+ 
     
 ]
 
@@ -70,6 +56,7 @@ SITE_ID = 1
 # Registro solo con correo
 
 ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_AUTHENTICATION_METHOD ='username_email'
 
 AUTHENTICATION_BACKENDS = (
     
@@ -96,7 +83,7 @@ ROOT_URLCONF = 'misitio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "templates"), os.path.join(BASE_DIR, 'templates', 'allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

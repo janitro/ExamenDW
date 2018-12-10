@@ -11,3 +11,12 @@ import requests
 def login(request):
     
     return render(request,"login.html") 
+
+
+def home(request):
+    
+    return render(request,"base/home.html") 
+
+
+
+
