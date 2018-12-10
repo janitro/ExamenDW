@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web',
+    'django_extensions',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -64,6 +65,11 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
+
+# Registro solo con correo
+
+ACCOUNT_EMAIL_REQUIRED=True
 
 AUTHENTICATION_BACKENDS = (
     
