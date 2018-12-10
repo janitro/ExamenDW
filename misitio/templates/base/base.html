@@ -24,6 +24,7 @@
         {% endblock %}
     </title>
 </head>
+<body>
 <nav class="navbar navbar-expand-lg navbar-light">
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +48,7 @@
         </li> 
 
         <li class="nav-item">
-            <a  href="{% url 'account_login' %}" class="nav-link">Cerrar Sesion</a>
+            <a  href="{% url 'account_logout' %}" class="nav-link">Cerrar Sesion</a>
         </li>
        
         {% else %}
@@ -59,7 +60,7 @@
     </ul>
     </div>
 </nav>
-<body>
+
 {% block contenedor %}
 
 {% endblock %}

@@ -56,7 +56,9 @@ SITE_ID = 1
 # Registro solo con correo
 
 ACCOUNT_EMAIL_REQUIRED=True
-ACCOUNT_AUTHENTICATION_METHOD ='username_email'
+ACCOUNT_AUTHENTICATION_METHOD ='email'
+
+
 
 AUTHENTICATION_BACKENDS = (
     
@@ -148,3 +150,6 @@ USE_TZ = True
 
 STATIC_URL = '/web/static/'
 STATIC_ROOT = '/web/static/' 
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
