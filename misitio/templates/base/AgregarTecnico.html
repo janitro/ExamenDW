@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/marcos.css' %}">
+<script src="{% static 'js/region.js' %}"></script>
+<h1>Registrar Tecnico</h1>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Agregar</button>
+</form>
+{% endblock %}
