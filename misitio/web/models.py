@@ -46,7 +46,7 @@ class Asignar(models.Model):
     Nom_cliente =models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self):
-     return self.dia_asc
+     return str(self.dia_asc)
 
 
     
@@ -68,6 +68,9 @@ class OdenDeTrabajo(models.Model):
     Nom_tecnico =models.CharField('Nombre Tecnico',max_length=100,null=True)
     Nom_cliente =models.CharField('Nombre Cliente',max_length=100,null=True)
     asignado = models.ForeignKey(Asignar, models.CASCADE)
+
+    def publish(self):
+        self.save()
 
 
     def __str__(self):

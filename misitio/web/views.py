@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import requests
-from web.forms import AgregarTecnicoForm,AsignarForm,ClienteForm
+from web.forms import AgregarTecnicoForm,AsignarForm,ClienteForm,OrdenForm
 from web.models import Asignar
 from django.contrib import messages
 
@@ -77,6 +77,19 @@ def asignado(request):
 def asignado_detail(request, pk):
     form = get_object_or_404(Asignar, pk=pk)
     return render(request, 'base/asignar_detail.html', {'form': form})
+
+
+
+def orden_trabajo(request):
+    if request.method == 'POST':
+        form = OrdenForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return redirect('home')
+    else:
+        form = OrdenForm()
+    return render(request, 'base/Orden.html', {'form': form})
 
               
 

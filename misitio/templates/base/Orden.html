@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <!-- Elements -->
+        
+        <div class="row 200% form-login">
+            <div class="12u">
+
+                <br>
+                <form id="formulario-perris" method="POST"  class="post-form">
+                        <br>
+                        <h1>¡Orden de Trabajo!</h1>
+                        <br> {% csrf_token %} {{ form.as_p }}
+                        <br>
+                        <input type="submit" name="submit" value="Enviar">
+                        <a href="{% url 'home' %}"><input type="button" name="back" value="Volver"></a>
+                
+                    </form>
+                
+                    
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

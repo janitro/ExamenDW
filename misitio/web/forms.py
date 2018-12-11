@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from web.models import Tecnico,Cliente,Asignar
+from web.models import Tecnico,Cliente,Asignar,OdenDeTrabajo
+from datetime import datetime,date, time,timezone
 
 
 
@@ -53,10 +54,21 @@ class ClienteForm(forms.ModelForm):
 
 class AsignarForm(forms.ModelForm):
 
-    dia_asc =forms.DateField()
+    dia_asc =forms.DateTimeField(initial=datetime.now,disabled='disabled')
     class Meta:
         model = Asignar
         fields = ('dia_asc', 'Nom_tecnico', 'Nom_cliente', )
+
+
+
+class OrdenForm(forms.ModelForm):
+
+    class Meta:
+        model = OdenDeTrabajo
+        fields = ('numero', 'fecha', 'hora_inicio', 'hora_termino', 'id_acensor', 
+        'mod_ascensor', 'fallas', 'reparacion', 'pieza_cambio', 'Nom_tecnico', 
+        'Nom_cliente', 'asignado',  )
+
 
     
 
