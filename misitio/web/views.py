@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import requests
-from web.forms import AgregarTecnicoForm,AsignarForm
+from web.forms import AgregarTecnicoForm,AsignarForm,ClienteForm
 from web.models import Asignar
+from django.contrib import messages
+
 
 
 
@@ -43,12 +45,19 @@ def tecnico(request):
     return render(request, 'base/AgregarTecnico.html', {'form': form})
 
 
+def cliente(request):
 
-
-
-
-
-
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            messages.success(request, 'Tecnico  Agregado')
+           
+            return redirect('cliente')
+    else:
+        form = ClienteForm()
+    return render(request, 'base/AgregarCliente.html', {'form': form})
 
 
 

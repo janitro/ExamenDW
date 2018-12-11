@@ -31,6 +31,26 @@ class AgregarTecnicoForm(UserCreationForm):
         fields = ('email', 'password1', 'password2', 'first_name', 'direccion', 'telefono',  'region', 
         'ciudad',  )
 
+
+
+class ClienteForm(forms.ModelForm):
+
+    ciudad = forms.CharField(max_length=50, 
+    widget=forms.Select(attrs={'class': 'form-control',
+    'id':'regiones','for': 'regiones'}))
+    comuna = forms.CharField(max_length=50, 
+    widget=forms.Select(attrs={'class': 'form-control',
+    'id':'comunas','for': 'comunas'}))
+
+    class Meta:
+        model = Cliente
+        fields = ('nombre', 'correo', 'telefono', 'direccion', 'ciudad', 'comuna',  )
+
+
+
+
+
+
 class AsignarForm(forms.ModelForm):
     class Meta:
         model = Asignar
