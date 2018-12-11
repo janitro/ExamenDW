@@ -21,6 +21,10 @@ def home(request):
     
     return render(request,"base/home.html") 
 
+def prueba(request):
+
+    return render(request,"base/prueba.html")    
+
 
 def tecnico(request):
 

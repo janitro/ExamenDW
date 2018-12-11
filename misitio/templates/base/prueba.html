@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FABRU</title>
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/pe-icons.css' %}" rel="stylesheet">
+    <link href="{static '/css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{% static '/css/animate.css'%}" rel="stylesheet">
+    <link href="{%static '/css/style.css' %}" rel="stylesheet">
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="{% static '/images/ico/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static '/images/ico/apple-touch-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static '/images/ico/apple-touch-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static '/images/ico/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" href="{% static '/images/ico/apple-touch-icon-57x57.png' %}">
+
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+	'use strict';
+      	jQuery('body').backstretch([
+	        "{% static '/images/bg/bg1.jpg' %}",
+	        "{% static '/images/bg/bg2.jpg' %}",
+	        "{% static '/images/bg/bg3.jpg' %}"
+	    ], {duration: 5000, fade: 500, centeredY: true });
+
+		
+    });
+    </script>
+</head><!--/head-->
+<body>
+<div id="preloader"></div>
+    <header class="navbar navbar-inverse navbar-fixed-top " role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </button>
+                 <a class="navbar-brand" href="index.html"><h1><span class="pe-7s-gleam bounce-in"></span> FABRU</h1></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about-us.html">Servicios</a></li>
+                   
+                    {% if user.is_superuser %}
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'tecnico' %}">Agregar Tecnico</a></li>
+                            <li><a href="{% url 'cliente' %}">Agregar Cliente</a></li>
+                            <li><a href="{% url 'asignado' %}">Asignar Clientes a Tecnicos</a></li>
+                            
+                        </ul>
+                    </li>
+                    
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tecnico <i class="icon-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'orden_trabajo' %}">Orden de Trabajo</a></li>
+                                <li><a href="{% url 'cliente' %}">Agregar Cliente</a></li>
+                                <li><a href="{% url 'asignado' %}">Asignar Clientes a Tecnicos</a></li>
+                                
+                            </ul>
+                        </li>
+                        
+                        <li><span class="search-trigger"><i class="fas fa-user-check"></i></span></li>
+                        
+                        <li class="nav-item">
+                        <a  href="{% url 'account_email' %}" class="nav-link">Cambiar su Correo</a>
+                        </li> 
+    
+                       <li class="nav-item">
+                       <a  href="{% url 'account_logout' %}" class="nav-link">Cerrar Sesion</a>
+                       </li>
+                        {% else %}
+                    <li><span class="search-trigger"><i class="fas fa-user-alt"></i></span></li>
+                    <li class="nav-item">
+                            <a  href="{% url 'account_login' %}" class="nav-link">iniciar sesion</a>
+                        </li>
+                        {% endif %}   
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-content center centered">
+                                	<span class="home-icon pe-7s-gleam bounce-in"></span>
+                                    <h2 class="boxed animation animated-item-1 fade-down">Nostros somos los mejores en latino america</h2>
+                                    <p class="boxed animation animated-item-2 fade-up">Tenemos mas de 10 años de experiencia</p>
+                                    <br>
+                                    <a class="btn btn-md animation bounce-in" href="#services">Leer Mas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+    </section><!--/#main-slider-->
+
+    <div id="content-wrapper">
+            <section id="services" class="white">
+                <div class="container">
+                <div class="gap"></div> 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="center gap fade-down section-heading">
+                                <h2 class="main-title">Cosas que Hacemos</h2>
+                                <hr>
+                                <p>Con las normas de seguridad mas alta de todo latino america.</p>
+                            </div>                
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="service-block">
+                                <div class="pull-left bounce-in">
+                                    <i class="fa fa-cogs fa fa-md"></i>
+                                </div>
+                                <div class="media-body fade-up">
+                                    <h3 class="media-heading">Reparaciones</h3>
+                                    <p>Reparaciones de asensores de todo tipo, tenemos nuestra gran experiencia.</p>
+                                </div>
+                            </div>
+                        </div><!--/.col-md-4-->
+                        <div class="col-md-4 col-sm-6">
+                            <div class="service-block">
+                                <div class="pull-left bounce-in">
+                                    <i class="fa fa-thumbs-o-up fa fa-md"></i>
+                                </div>
+                                <div class="media-body fade-up">
+                                    <h3 class="media-heading">Aseoramiento </h3>
+                                    <p>Asesoramos a contructuras para la implementacion de asensores.</p>
+                                </div>
+                            </div>
+                        </div><!--/.col-md-4-->
+                        <div class="col-md-4 col-sm-6">
+                            <div class="service-block">
+                                <div class="pull-left bounce-in">
+                                    <i class="fa fa-ticket fa fa-md"></i>
+                                </div>
+                                <div class="media-body fade-up">
+                                    <h3 class="media-heading">Mantenciones</h3>
+                                    <p>Realizamos mantenciones mensuales a nuestros cliente para que tengan seguridad.</p>
+                                </div>
+                            </div>
+                        </div><!--/.col-md-4-->
+                    </div><!--/.row-->
+                    
+                </div>
+                <div class="gap"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="center gap fade-down section-heading">
+                                <h2 class="main-title">Lo que mas Hacemos</h2>
+                                <hr>
+                                <p>La demanda de nuestra empresa se puede expresar en este grafico</p>
+                            </div>               
+                        </div>
+                    </div>
+                </div>
+                <div class="container">     
+                <div class="row">            
+                        <div class="col-md-3">
+                            <div class="tile-progress tile-red bounce-in">
+                                <div class="tile-header">
+                                    <h3>Asesorar</h3>
+                                    <span>Asesoramos a nuestros clientes solo un.</span>
+                                </div>
+                                <div class="tile-progressbar">
+                                    <span data-fill="65.5%" style="width: 65.5%;"></span>
+                                </div>
+                                <div class="tile-footer">
+                                    <h4>
+                                        <span class="pct-counter counter">65.5</span>%
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile-progress tile-cyan bounce-in">
+                                <div class="tile-header">
+                                    <h3>Reparaciones</h3>
+                                    <span>Hemos hecho reparaciones a nuestros clientes.</span>
+                                </div>
+                                <div class="tile-progressbar">
+                                    <span data-fill="98.5%" style="width: 98.5%;"></span>
+                                </div>
+                                <div class="tile-footer">
+                                    <h4>
+                                        <span class="pct-counter counter">98.5</span>%
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile-progress tile-primary bounce-in">
+                                <div class="tile-header">
+                                    <h3>Mantenciones</h3>
+                                    <span>Mantenciones a nuestros clientes.</span>
+                                </div>
+                                <div class="tile-progressbar">
+                                    <span data-fill="90%" style="width: 90%;"></span>
+                                </div>
+                                <div class="tile-footer">
+                                    <h4>
+                                        <span class="pct-counter counter">90</span>%
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tile-progress tile-pink bounce-in">
+                                <div class="tile-header">
+                                    <h3>Extras</h3>
+                                    <span>Trabajos de ingenieria como electricidad.</span>
+                                </div>
+                                <div class="tile-progressbar">
+                                    <span data-fill="10%" style="width: 10%;"></span>
+                                </div>
+                                <div class="tile-footer">
+                                    <h4>
+                                        <span class="pct-counter counter">10</span>%
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/.row-->
+                    <div class="gap"></div>
+                </div>
+            </section>
+
+
+  
+
+
+
+
+<footer id="footer" class="">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            &copy; 2018 <a target="_blank" href="http://www.distinctivethemes.com" title="Premium Themes and Templates">Fabian Plaza, Bruno Cordova, Hugo Ordenes, Yerko Ortega</a>. DUOC UC Desarrollo de Software.
+        </div>
+        <div class="col-sm-6">
+            <ul class="pull-right">
+                <li><a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a></li><!--#gototop-->
+            </ul>
+        </div>
+    </div>
+</div>
+</footer><!--/#footer-->
+</div>
+    
+
+   
+    
+    
+    <script src="{% static '/js/plugins.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/jquery.prettyPhoto.js' %}"></script>   
+   
+    <script src="{% static '/js/init.js' %}"></script>
+</body>
+</html>
