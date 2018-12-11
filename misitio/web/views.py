@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 import requests
 from web.forms import AgregarTecnicoForm,AsignarForm,ClienteForm,OrdenForm
-from web.models import Asignar
+from web.models import Asignar,Cliente,Tecnico,OdenDeTrabajo
 from django.contrib import messages
+# from django.shortcuts import render_to_response, RequestContext
+# from push_notifications.models import APNSDevice, GCMDevice
 
 
 
@@ -94,6 +96,47 @@ def orden_trabajo(request):
     else:
         form = OrdenForm()
     return render(request, 'base/Orden.html', {'form': form})
+
+
+def listar_clientes(request):
+    posts = OdenDeTrabajo.objects.all()
+
+    return render(request, 'base/listar_orden.html', {'posts': posts})
+
+
+def lista_asignar(request):
+    posts = Asignar.objects.all()
+
+    return render(request, 'base/listar_asignar.html', {'posts': posts})
+
+
+# def push_notifications_view(request):
+
+
+#     if request.method == "POST":
+#      if 'code' in request.POST:
+#       code = request.POST['code']
+
+#     if code == 'android':
+#      print 'code == android'
+#      devices = GCMDevice.objects.all()
+#      devices.send_message({"message": "Hola Android!"})
+#      message = "mensaje enviado a los ANDROID"
+
+#     elif code == 'ios':
+#       print 'code == ios'
+#       devices = APNSDevice.objects.all()
+#       devices.send_message("Hola iOS!")
+#       message = "mensaje Enviado a los IOS"
+
+#     elif code == 'simple':
+#       print 'code == simple'
+#       device = APNSDevice.objects.get(registration_id='mi apns token')
+#       device.send_message(None, extra={"foo": "bar"})
+#       message = "simple message sent"
+
+#     return render_to_response('notificacion_push.html', locals(), context_instance=RequestContext(request))
+
 
               
 

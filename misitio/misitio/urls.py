@@ -23,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url ('', include ('web.urls')),
+    url ('', include ('pwa.urls')),
+    # url(r'^pushes/', include('pushes.urls')),
 
 ]

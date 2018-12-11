@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+<!-- Jumbotron -->
+<div class="jumbotron">
+<h1>Send some notifications</h1>
+<p class="lead">Es para mandar notificaciones.</p>
+
+</div>
+{% endblock %}
+
+{% block content %}
+{% if message %}
+<div class="alert alert-info">{{ message }}</div>
+{% endif %}
+
+<form method="POST">{% csrf_token %}
+<button class="btn btn-primary" name="code" type="submit" value="android">Push Para Androids!</button>
+<button class="btn btn-primary" name="code" type="submit" value="ios">Push Para iOSs!</button>
+<button class="btn btn-primary" name="code" type="submit" value="simple">Push para cualquiera!!!</button></form>{% endblock %}

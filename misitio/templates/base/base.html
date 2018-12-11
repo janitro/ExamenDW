@@ -1,7 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+{% load pwa %}   
 <head>
+{% progressive_web_app_meta %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -10,7 +12,7 @@
     <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static '/css/pe-icons.css' %}" rel="stylesheet">
-    <link href="{static '/css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{%static '/css/prettyPhoto.css' %}" rel="stylesheet">
     <link href="{% static '/css/animate.css'%}" rel="stylesheet">
     <link href="{%static '/css/style.css' %}" rel="stylesheet">
     <script src="{% static '/js/jquery.js' %}"></script>
@@ -24,7 +26,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{% static '/images/ico/apple-touch-icon-72x72.png' %}">
     <link rel="apple-touch-icon" href="{% static '/images/ico/apple-touch-icon-57x57.png' %}">
 
-  
+
 </head><!--/head-->
 <body>
 <div id="preloader"></div>
@@ -59,8 +61,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tecnico <i class="icon-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'orden_trabajo' %}">Orden de Trabajo</a></li>
-                                <li><a href="{% url 'cliente' %}">Agregar Cliente</a></li>
-                                <li><a href="{% url 'asignado' %}">Asignar Clientes a Tecnicos</a></li>
+                                <li><a href="{% url 'listar_clientes' %}">Listar Orden de trabajo</a></li>
+                                <li><a href="{% url 'listar_clientes' %}">Ver Clientes Asignados</a></li>
                                 
                             </ul>
                         </li>

@@ -48,11 +48,14 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute(
   [
     '/',
-    '/login',
-    '/ListarPerros',
-    '/Mascota',
-    '/signup',
-    '/logout'
+    '/accounts/login/',
+    '/accounts/email/',
+    '/tecnico/',
+    '/cliente/',
+    '/asignado/',
+    '/orden_trabajo/',
+    'accounts/logout/',
+   
     
   ],
   {

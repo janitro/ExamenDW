@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web',
+    'pwa',
+    'push_notifications',
     'django_extensions',
     'django.contrib.sites',
     'allauth',
@@ -52,6 +54,11 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+
+PUSH_NOTIFICATIONS_SETTINGS = {
+'GCM_API_KEY': '< your api key >',
+'APNS_CERTIFICATE': '/path/to/your/certificate.pem',
+}
 
 # Registro solo con correo
 
@@ -153,3 +160,22 @@ STATIC_ROOT = '/web/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+PWA_SERVICE_WORKER_PATH  = os.path.join ( BASE_DIR , 'web/static/js/' , 'serviceworker.js' )
+
+
+PWA_APP_NAME = 'ExamenDW'
+PWA_APP_DESCRIPTION = "Aplicacion_Para_Duoc_UC"
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': 'web/static/img/logoDW.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_DIR  =  ' ltr '
+PWA_APP_LANG  =  ' en-es '
