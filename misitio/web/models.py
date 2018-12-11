@@ -12,6 +12,9 @@ class Tecnico(models.Model):
     telefono = models.CharField('Telefono', max_length=100, null= True)
     region = models.CharField('Region',max_length=50,null=True)
     ciudad = models.CharField('Ciudad',max_length=50,null=True)
+
+    def publish(self):
+        self.save()
     
 
     def __str__(self):

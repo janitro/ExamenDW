@@ -33,7 +33,7 @@ def tecnico(request):
         form = AgregarTecnicoForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.refresh_from_db()  # load the profile instance created by the signal
+            user.refresh_from_db()  
             user.tecnico.email = form.cleaned_data.get('email')
             user.tecnico.first_name = form.cleaned_data.get('first_name')
             user.tecnico.direccion  = form.cleaned_data.get('direccion')

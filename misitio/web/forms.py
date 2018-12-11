@@ -11,12 +11,14 @@ class AgregarTecnicoForm(UserCreationForm):
     email = forms.CharField(max_length=50, 
     widget=forms.EmailInput(attrs={'class': 'form-control',
     'placeholder':'ejemplo@ejemplo.cl'}))
+    
+    username = forms.CharField(max_length=100, 
+    widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'bcordova'}))
     first_name = forms.CharField(max_length=100, 
     widget=forms.TextInput(attrs={'class': 'form-control',
     'placeholder':'Bruno Cordova'}))
     direccion = forms.CharField(max_length=100, 
-    widget=forms.TextInput(attrs={'class': 'form-control',
-    'placeholder':'Avenida Miraflores'}))
+    widget=forms.TextInput(attrs={'class': 'form-control'}))
     telefono = direccion = forms.CharField(max_length=100, 
     widget=forms.TextInput(attrs={'class': 'form-control',
     'placeholder':'+56 9907012'}))
@@ -26,10 +28,11 @@ class AgregarTecnicoForm(UserCreationForm):
     ciudad = forms.CharField(max_length=50, 
     widget=forms.Select(attrs={'class': 'form-control',
     'id':'comunas','for': 'comunas'}))
+    
 
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2', 'first_name', 'direccion', 'telefono',  'region', 
+        fields = ('email', 'password1', 'password2', 'username','first_name', 'direccion', 'telefono',  'region', 
         'ciudad',  )
 
 
