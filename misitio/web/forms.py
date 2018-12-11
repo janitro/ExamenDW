@@ -52,6 +52,8 @@ class ClienteForm(forms.ModelForm):
 
 
 class AsignarForm(forms.ModelForm):
+
+    dia_asc =forms.DateField()
     class Meta:
         model = Asignar
         fields = ('dia_asc', 'Nom_tecnico', 'Nom_cliente', )
